@@ -1,0 +1,66 @@
+---
+title: "Big Title"
+author: "From: Emma van Inwegen, Dmitry Sorokin"
+date: "`r paste('Date:', format(Sys.time(), '%B %d, %Y'))`"
+output:
+  officedown::rdocx_document:
+    reference_docx: word_style_file.docx
+    tables:
+      style: Normal
+      width: 1.0
+      caption:
+       style: Table Caption
+       pre: 'Table '
+       sep: ': '
+    plots:
+      style: Normal
+      align: center
+      caption:
+       style: Figure
+       pre: 'Figure '
+       sep: ': '
+    fig_height: 3.75
+    fig_width: 5.5
+    keep_md: true
+---
+
+```{r dependencies, message=F}
+library(here)
+library(magrittr)
+library(data.table)   # a better version of data frame
+library(lmtest)       # a package to compute p-values in regressions properly
+library(sandwich)     # a supplement to lmtest. Not lunch!
+library(ggplot2)
+library(huxtable)
+library(languageserver) # support for R in VS Code
+library(httpgd)
+```
+
+
+# Setup
+
+Imagine a platform where workers and employers meet and possibly transact. Employers have a willingness to pay $\nu$ for their projects, which cost $c$ to any of a large number of workers to implement, where $\nu > c$. We assume that each side of the market has a von Neumann-Morgenstern utility of money given by
+
+$$u(m) = \frac{1}{1-\gamma}m^{1-\gamma}$$
+
+The platform charges a fee that is a function of how many hours a contract lasts. If the project generates less than 1 unit of revenue ("a short project"), then the platform charges a fee $\tau$ on every dollar spent. If the project generates more than 1 unit of revenue, then the platform taxes the first 1 unit at rate $\tau$ (pocketing a profit of $\tau \times 1 = \tau$), and charges no fee on any dollar afterwards.
+
+Let $X$I assume that the firm has private information about how long the contract will last. As such, the firm knows how large the fee would be. However, the workers do not know the exact duration of the project and have to form a belief about its duration. Assume that the fraction of employers with a short project is $p$.
+
+## Workers pay the fee
+
+Consider a scenario in which it is the workers who pay the fee. All employers look the same to the workers, so they rely on their prior belief $p$. Let $T$ be a random variable that takes value $\tau$ with probability $p$ and 0 otherwise. Then, if the wage for the project is $w$, then the expected utility of a worker from completing it is
+
+$$U_w = \mathbb{E}[u(w - T)]$$
+
+
+
+
+
+
+
+
+
+
+
+
